@@ -11,11 +11,13 @@
 <body class="admin-page">
   <div class="admin-shell">
     <header class="admin-header" data-admin-nav></header>
-    <main class="admin-main" data-orders-admin>
+    <main class="admin-main">
       <section class="admin-panel">
         <h1>Siparişler</h1>
         <p class="admin-note">Burada checkout sonrası oluşan sipariş kayıtlarını görebilirsiniz.</p>
+        <div class="admin-debug" data-orders-debug style="background: #f5f5f5; padding: 12px; border-radius: 4px; margin-top: 16px; font-size: 12px; font-family: monospace; max-height: 200px; overflow-y: auto;"></div>
       </section>
+      <div data-orders-admin></div>
     </main>
   </div>
   <script src="../js/app.js" defer></script>

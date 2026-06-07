@@ -91,7 +91,7 @@
     const formMessage = document.querySelector("[data-form-message]");
 
     let products = await Store.loadProducts("../data/products.json");
-    const categories = await Store.loadJson("../data/categories.json");
+    let categories = await Store.loadJson("../data/categories.json");
     let editingId = null;
 
     function renderCategories() {
@@ -99,6 +99,76 @@
       categorySelect.innerHTML = categories.map((category) => `
         <option value="${category.id}">${category.name}</option>
       `).join("");
+    }
+
+    function saveCategories() {
+      localStorage.setItem("three-d-store-categories-v1", JSON.stringify(categories));
+    }
+
+    function loadCategories() {
+      const stored = localStorage.getItem("three-d-store-categories-v1");
+      if (stored) {
+        try {
+          categories = JSON.parse(stored);
+        } catch (error) {
+          console.warn("Kategori verisi okunamadi", error);
+        }
+      }
+    }
+
+    function renderCategoryManager() {
+      const categoryManager = document.querySelector("[data-category-manager]");
+      if (!categoryManager) return;
+
+      categoryManager.innerHTML = `
+        <div class="category-form-group">
+          <input type="text" id="new-category-name" placeholder="Kategori adı" />
+          <button type="button" class="button small" data-add-category>Ekle</button>
+        </div>
+        <div class="category-list">
+          ${categories.map((cat) => `
+            <div class="category-item">
+              <span>${cat.name}</span>
+              <button type="button" class="button small secondary" data-delete-category="${cat.id}">Sil</button>
+            </div>
+          `).join("")}
+        </div>
+      `;
+      bindCategoryActions();
+    }
+
+    function bindCategoryActions() {
+      document.querySelector("[data-add-category]")?.addEventListener("click", () => {
+        const input = document.querySelector("#new-category-name");
+        const name = input.value.trim();
+        if (!name) {
+          Store.showToast("Kategori adı giriniz.");
+          return;
+        }
+        const newCategory = {
+          id: name.toLowerCase().replace(/\s+/g, "-"),
+          name: name,
+          description: ""
+        };
+        categories.push(newCategory);
+        saveCategories();
+        renderCategoryManager();
+        renderCategories();
+        input.value = "";
+        Store.showToast("Kategori eklendi.");
+      });
+
+      document.querySelectorAll("[data-delete-category]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = btn.dataset.deleteCategory;
+          if (!confirm("Bu kategoriyi silmek istediğinize emin misiniz?")) return;
+          categories = categories.filter((c) => c.id !== id);
+          saveCategories();
+          renderCategoryManager();
+          renderCategories();
+          Store.showToast("Kategori silindi.");
+        });
+      });
     }
 
     function renderTable() {
@@ -237,16 +307,35 @@
       resetForm();
     });
 
+    loadCategories();
     renderCategories();
+    renderCategoryManager();
     renderTable();
     resetForm();
   }
 
   function initOrdersAdmin() {
     const ordersRoot = document.querySelector("[data-orders-admin]");
+    const debugNode = document.querySelector("[data-orders-debug]");
     if (!ordersRoot) return;
 
     const orders = Store.getOrders();
+    
+    // Debug bilgisi
+    const debugInfo = {
+      "localStorage key": "three-d-store-orders-v1",
+      "siparış sayısı": orders.length,
+      "ilk 3 sipariş": orders.slice(0, 3),
+      "ham localStorage": localStorage.getItem("three-d-store-orders-v1")?.substring(0, 200) + "..."
+    };
+    
+    if (debugNode) {
+      debugNode.innerHTML = `<strong>Debug:</strong><br/>` + 
+        Object.entries(debugInfo).map(([k, v]) => 
+          `${k}: ${typeof v === 'object' ? JSON.stringify(v) : v}`
+        ).join("<br/>");
+    }
+
     if (!orders.length) {
       ordersRoot.innerHTML = `
         <div class="empty-state">

@@ -237,3 +237,40 @@ button.button.full {
     gap: 24px;
   }
 }
+
+/* Kategori Yönetimi */
+.category-form-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.category-form-group input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.category-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.category-item button {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+}
