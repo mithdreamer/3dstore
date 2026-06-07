@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     const [products, categories] = await Promise.all([
-      Store.loadJson("../data/products.json"),
+      Store.loadProducts("../data/products.json"),
       Store.loadJson("../data/categories.json")
     ]);
 

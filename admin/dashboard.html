@@ -1,11 +1,33 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Store</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Kontrol Paneli | 3D Store</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/admin.css">
 </head>
-<body>
-
+<body class="admin-page">
+  <div class="admin-shell">
+    <header class="admin-header" data-admin-nav></header>
+    <main class="admin-main" data-admin-dashboard>
+      <section class="admin-panel">
+        <h1>Kontrol Paneli</h1>
+        <p class="admin-note">Ürün, sipariş ve iletişim yönetimini bu panel üzerinden yapabilirsiniz.</p>
+        <div class="admin-overview">
+          <div class="stat-card"><strong data-product-count>0</strong><span>Ürün</span></div>
+          <div class="stat-card"><strong data-order-count>0</strong><span>Sipariş</span></div>
+          <div class="stat-card"><strong data-message-count>0</strong><span>Mesaj</span></div>
+        </div>
+      </section>
+      <section class="admin-panel">
+        <h2>Son Eklenen Ürünler</h2>
+        <ul data-latest-products class="admin-list"></ul>
+      </section>
+    </main>
+  </div>
+  <script src="../js/app.js" defer></script>
+  <script src="../js/admin.js" defer></script>
 </body>
 </html>

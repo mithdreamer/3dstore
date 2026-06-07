@@ -1,6 +1,8 @@
 (function () {
   const CART_KEY = "three-d-store-cart-v1";
   const ORDERS_KEY = "three-d-store-orders-v1";
+  const PRODUCTS_KEY = "three-d-store-products-v1";
+  const MESSAGES_KEY = "three-d-store-messages-v1";
 
   const currency = new Intl.NumberFormat("tr-TR", {
     style: "currency",
@@ -18,6 +20,25 @@
       throw new Error(`${path} yuklenemedi`);
     }
     return response.json();
+  }
+
+  async function loadProducts(path) {
+    const storedProducts = localStorage.getItem(PRODUCTS_KEY);
+    if (storedProducts) {
+      try {
+        const products = JSON.parse(storedProducts);
+        if (Array.isArray(products) && products.length) {
+          return products;
+        }
+      } catch (error) {
+        console.warn("Yerel ürün verisi okunamadi", error);
+      }
+    }
+    return loadJson(path);
+  }
+
+  function saveProducts(products) {
+    localStorage.setItem(PRODUCTS_KEY, JSON.stringify(products));
   }
 
   function getCart() {
@@ -103,6 +124,23 @@
     }
   }
 
+  function getMessages() {
+    try {
+      return JSON.parse(localStorage.getItem(MESSAGES_KEY)) || [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function saveMessage(message) {
+    const messages = getMessages();
+    messages.unshift({
+      ...message,
+      submittedAt: new Date().toISOString()
+    });
+    localStorage.setItem(MESSAGES_KEY, JSON.stringify(messages.slice(0, 100)));
+  }
+
   function updateCartCount() {
     const totals = getCartTotals();
     document.querySelectorAll("[data-cart-count]").forEach((node) => {
@@ -112,6 +150,14 @@
   }
 
   function productVisual(product) {
+    if (product.image) {
+      return `
+        <div class="product-visual image" aria-hidden="true">
+          <img src="${product.image}" alt="${product.name}" loading="lazy">
+        </div>
+      `;
+    }
+
     const shape = product.shape || "stand";
     const inner = shape === "organizer" ? "<span></span><span></span><span></span>" : "";
 
@@ -162,8 +208,21 @@
     document.querySelectorAll("[data-soft-submit]").forEach((form) => {
       form.addEventListener("submit", (event) => {
         event.preventDefault();
+        const formData = Object.fromEntries(new FormData(form).entries());
+
+        if (form.querySelector("[name='message']")) {
+          saveMessage({
+            name: formData.name || "Ziyaretci",
+            email: formData.email || "",
+            phone: formData.phone || "",
+            topic: formData.topic || "",
+            message: formData.message || "",
+            formData
+          });
+        }
+
         form.reset();
-        showToast("Mesajin alindi. Bu statik demoda kayit yerel olarak simule edildi.");
+        showToast("Mesajin alindi. Bu statik demo formatinda yerelde kaydedildi.");
       });
     });
   }
@@ -188,10 +247,14 @@
     getCart,
     getCartTotals,
     getOrders,
+    getMessages,
     loadJson,
+    loadProducts,
     productVisual,
     removeFromCart,
+    saveMessage,
     saveOrder,
+    saveProducts,
     setQuantity,
     showToast,
     updateCartCount

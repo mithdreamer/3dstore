@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Yönlendiriliyor</title>
+  <script>
+    const auth = localStorage.getItem("three-d-store-admin-auth-v1") === "true";
+    window.location.href = auth ? "dashboard.html" : "login.html";
+  </script>
+</head>
+<body>
+  <p>Admin paneline yönlendiriliyorsunuz...</p>
+</body>
+</html>

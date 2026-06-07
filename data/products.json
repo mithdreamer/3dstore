@@ -13,6 +13,7 @@
     "leadTime": "2-3 is gunu",
     "palette": "teal",
     "shape": "organizer",
+    "image": "../assets/images/product-placeholder.svg",
     "featured": true,
     "tags": ["moduler", "ofis", "masa"],
     "description": "Kalem, kart, telefon ve kucuk aksesuarlar icin birbirine gecen modullerden olusan duzenleyici set.",
