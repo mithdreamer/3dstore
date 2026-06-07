@@ -2,6 +2,7 @@
   const CART_KEY = "three-d-store-cart-v1";
   const ORDERS_KEY = "three-d-store-orders-v1";
   const PRODUCTS_KEY = "three-d-store-products-v1";
+  const CATEGORIES_KEY = "three-d-store-categories-v1";
   const MESSAGES_KEY = "three-d-store-messages-v1";
 
   const currency = new Intl.NumberFormat("tr-TR", {
@@ -39,6 +40,26 @@
 
   function saveProducts(products) {
     localStorage.setItem(PRODUCTS_KEY, JSON.stringify(products));
+  }
+
+  async function loadCategories(path) {
+    const storedCategories = localStorage.getItem(CATEGORIES_KEY);
+    if (storedCategories) {
+      try {
+        const categories = JSON.parse(storedCategories);
+        if (Array.isArray(categories)) {
+          return categories;
+        }
+      } catch (error) {
+        console.warn("Yerel kategori verisi okunamadi", error);
+      }
+    }
+
+    return loadJson(path);
+  }
+
+  function saveCategories(categories) {
+    localStorage.setItem(CATEGORIES_KEY, JSON.stringify(categories));
   }
 
   function getCart() {
@@ -248,12 +269,14 @@
     getCartTotals,
     getOrders,
     getMessages,
+    loadCategories,
     loadJson,
     loadProducts,
     productVisual,
     removeFromCart,
     saveMessage,
     saveOrder,
+    saveCategories,
     saveProducts,
     setQuantity,
     showToast,

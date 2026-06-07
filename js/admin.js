@@ -91,29 +91,50 @@
     const formMessage = document.querySelector("[data-form-message]");
 
     let products = await Store.loadProducts("../data/products.json");
-    let categories = await Store.loadJson("../data/categories.json");
+    let categories = await Store.loadCategories("../data/categories.json");
     let editingId = null;
 
     function renderCategories() {
       if (!categorySelect) return;
+      if (!categories.length) {
+        categorySelect.innerHTML = `<option value="">Kategori yok</option>`;
+        return;
+      }
       categorySelect.innerHTML = categories.map((category) => `
         <option value="${category.id}">${category.name}</option>
       `).join("");
     }
 
     function saveCategories() {
-      localStorage.setItem("three-d-store-categories-v1", JSON.stringify(categories));
+      Store.saveCategories(categories);
     }
 
-    function loadCategories() {
-      const stored = localStorage.getItem("three-d-store-categories-v1");
-      if (stored) {
-        try {
-          categories = JSON.parse(stored);
-        } catch (error) {
-          console.warn("Kategori verisi okunamadi", error);
-        }
-      }
+    function categoryIdFromName(name) {
+      const trMap = {
+        "ç": "c",
+        "ğ": "g",
+        "ı": "i",
+        "i": "i",
+        "ö": "o",
+        "ş": "s",
+        "ü": "u",
+        "Ç": "c",
+        "Ğ": "g",
+        "İ": "i",
+        "I": "i",
+        "Ö": "o",
+        "Ş": "s",
+        "Ü": "u"
+      };
+
+      return name
+        .trim()
+        .replace(/[çğıiöşüÇĞİIÖŞÜ]/g, (char) => trMap[char] || char)
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "") || `kategori-${Date.now()}`;
     }
 
     function renderCategoryManager() {

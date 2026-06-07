@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     const [products, categories] = await Promise.all([
       Store.loadProducts("../data/products.json"),
-      Store.loadJson("../data/categories.json")
+      Store.loadCategories("../data/categories.json")
     ]);
 
     const categoryMap = new Map(categories.map((category) => [category.id, category.name]));
