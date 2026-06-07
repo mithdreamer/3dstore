@@ -140,12 +140,13 @@
     function renderCategoryManager() {
       const categoryManager = document.querySelector("[data-category-manager]");
       if (!categoryManager) return;
-
       categoryManager.innerHTML = `
         <div class="category-form-group">
           <input type="text" id="new-category-name" placeholder="Kategori adı" />
           <button type="button" class="button small" data-add-category>Ekle</button>
+          <button type="button" class="button small" data-export-categories>Dışa aktar</button>
         </div>
+        <p class="admin-note small">Not: Kategoriler yalnızca tarayıcıda saklanır. Kalıcı değişiklik için indirilen ` + "categories.json" + ` dosyasını repo içindeki data/categories.json ile değiştirip commit/push yapın.</p>
         <div class="category-list">
           ${categories.map((cat) => `
             <div class="category-item">
@@ -166,22 +167,36 @@
           Store.showToast("Kategori adı giriniz.");
           return;
         }
+        const id = categoryIdFromName(name);
+        const duplicate = categories.some((category) => (
+          category.id === id || category.name.toLocaleLowerCase("tr-TR") === name.toLocaleLowerCase("tr-TR")
+        ));
+
+        if (duplicate) {
+          Store.showToast("Bu kategori zaten var.");
+          return;
+        }
+
         const newCategory = {
-          id: name.toLowerCase().replace(/\s+/g, "-"),
-          name: name,
+          id,
+          name,
           description: ""
         };
         categories.push(newCategory);
         saveCategories();
         renderCategoryManager();
         renderCategories();
-        input.value = "";
         Store.showToast("Kategori eklendi.");
       });
 
       document.querySelectorAll("[data-delete-category]").forEach((btn) => {
         btn.addEventListener("click", () => {
           const id = btn.dataset.deleteCategory;
+          const hasProducts = products.some((product) => product.category === id);
+          if (hasProducts) {
+            Store.showToast("Bu kategoriye bagli urun var. Once urun kategorilerini degistirin.");
+            return;
+          }
           if (!confirm("Bu kategoriyi silmek istediğinize emin misiniz?")) return;
           categories = categories.filter((c) => c.id !== id);
           saveCategories();
@@ -190,15 +205,34 @@
           Store.showToast("Kategori silindi.");
         });
       });
+
+      document.querySelector("[data-export-categories]")?.addEventListener("click", () => {
+        try {
+          const blob = new Blob([JSON.stringify(categories, null, 2)], { type: "application/json" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "categories.json";
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(url);
+          Store.showToast("Kategoriler indirildi. Dosyayı repoya ekleyip pushlayın.");
+        } catch (err) {
+          console.error(err);
+          Store.showToast("Dışa aktarılırken hata oluştu.");
+        }
+      });
     }
 
     function renderTable() {
       if (!productTable) return;
+      const categoryMap = new Map(categories.map((category) => [category.id, category.name]));
       productTable.innerHTML = products.map((product) => `
         <tr>
           <td>${product.id}</td>
           <td>${product.name}</td>
-          <td>${product.category}</td>
+          <td>${categoryMap.get(product.category) || product.category}</td>
           <td>${product.price}</td>
           <td>${product.stock}</td>
           <td>${product.featured ? "Evet" : "Hayır"}</td>
@@ -271,7 +305,7 @@
       return {
         id,
         name,
-        category: (formData.get("category") || "workspace").toString(),
+        category: (formData.get("category") || categories[0]?.id || "workspace").toString(),
         price: Number(formData.get("price") || 0),
         oldPrice: Number(formData.get("oldPrice") || 0),
         rating: Number(formData.get("rating") || 0),
@@ -328,7 +362,6 @@
       resetForm();
     });
 
-    loadCategories();
     renderCategories();
     renderCategoryManager();
     renderTable();
