@@ -22,8 +22,8 @@
     "enabled": false
   },
   "bankTransfer": {
-    "bankName": "Made3D Demo Bank",
-    "accountHolder": "Made3D",
+    "bankName": "MAde3D Demo Bank",
+    "accountHolder": "MAde3D",
     "iban": "TR00 0000 0000 0000 0000 0000 00"
   }
 }

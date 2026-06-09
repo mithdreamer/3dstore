@@ -47,7 +47,7 @@
 
     navigation.innerHTML = `
       <div class="admin-brand">
-        <a href="dashboard.html">Made3D</a>
+        <a href="dashboard.html">MAde3D</a>
       </div>
       <nav class="admin-links">
         <a href="dashboard.html">Kontrol Paneli</a>

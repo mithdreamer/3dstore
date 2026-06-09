@@ -6,8 +6,8 @@
 
 # Test info
 
-- Name: tests\made3d.spec.js >> Made3D storefront and admin demo flow
-- Location: tests\made3d.spec.js:4:1
+- Name: tests\MAde3D.spec.js >> MAde3D storefront and admin demo flow
+- Location: tests\MAde3D.spec.js:4:1
 
 # Error details
 

@@ -13,7 +13,7 @@
         <div class="container navbar">
           <a class="brand" href="${Utils.rootPath()}index.html">
             <span class="brand-mark">${Utils.escapeHTML(settings.shortName || "FS")}</span>
-            <span>${Utils.escapeHTML(settings.siteName || "Made3D")}</span>
+            <span>${Utils.escapeHTML(settings.siteName || "MAde3D")}</span>
           </a>
           <nav class="nav-links" aria-label="Ana menü">
             ${link(`${Utils.rootPath()}index.html`, "Ana sayfa", "home")}

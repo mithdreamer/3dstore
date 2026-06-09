@@ -23,7 +23,7 @@
     <rect x="290" y="187" width="10" height="12" fill="#3a2147"/>
   </g>
   <rect x="95" y="125" width="210" height="50" fill="rgba(255,255,255,0.1)" rx="3"/>
-  <text x="200" y="150" font-size="24" font-weight="bold" fill="#fff" text-anchor="middle" font-family="Arial">Made3D</text>
+  <text x="200" y="150" font-size="24" font-weight="bold" fill="#fff" text-anchor="middle" font-family="Arial">MAde3D</text>
   <text x="200" y="168" font-size="12" fill="#e8d8f5" text-anchor="middle" font-family="Arial">Kisisel isimlik</text>
   <ellipse cx="120" cy="130" rx="30" ry="15" fill="#fff" opacity="0.2"/>
 </svg>

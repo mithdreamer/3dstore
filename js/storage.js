@@ -1,12 +1,12 @@
 (function () {
   const KEYS = {
-    products: "made3d.products",
-    categories: "made3d.categories",
-    orders: "made3d.orders",
-    settings: "made3d.settings",
-    paymentSettings: "made3d.paymentSettings",
-    shippingSettings: "made3d.shippingSettings",
-    cart: "made3d.cart"
+    products: "MAde3D.products",
+    categories: "MAde3D.categories",
+    orders: "MAde3D.orders",
+    settings: "MAde3D.settings",
+    paymentSettings: "MAde3D.paymentSettings",
+    shippingSettings: "MAde3D.shippingSettings",
+    cart: "MAde3D.cart"
   };
 
   const seed = () => window.ECommerceSeed || {};
@@ -36,8 +36,8 @@
       enabled: false
     },
     bankTransfer: {
-      bankName: "Made3D Demo Bank",
-      accountHolder: "Made3D",
+      bankName: "MAde3D Demo Bank",
+      accountHolder: "MAde3D",
       iban: "TR00 0000 0000 0000 0000 0000 00"
     }
   };
@@ -56,7 +56,7 @@
       branchCode: ""
     },
     sender: {
-      name: "Made3D Atölye",
+      name: "MAde3D Atölye",
       phone: "+90 555 123 45 67",
       address: "İstanbul, Türkiye"
     },

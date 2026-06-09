@@ -1,6 +1,6 @@
-# Made3D
+# MAde3D
 
-Made3D, 3D baskı ürünleri için statik e-ticaret demosudur. Ana sayfa, ürün listeleme, ürün detay, sepet, checkout, sipariş başarı sayfası ve localStorage tabanlı admin paneli içerir.
+MAde3D, 3D baskı ürünleri için statik e-ticaret demosudur. Ana sayfa, ürün listeleme, ürün detay, sepet, checkout, sipariş başarı sayfası ve localStorage tabanlı admin paneli içerir.
 
 ## Yerelde çalıştırma
 
@@ -42,5 +42,5 @@ Netlify'da GitHub reposunu bağlarken:
 - `components/`: Navbar, footer, ürün kartı ve admin sidebar
 - `css/`: Ortak tema ve layout stilleri
 - `js/`: Seed veri, sepet, ürün, sipariş, ödeme ve kargo davranışları
-- `data/`: Made3D örnek ürün, kategori ve ayar JSON verileri
+- `data/`: MAde3D örnek ürün, kategori ve ayar JSON verileri
 - `assets/images/store-hero.png`: Ana sayfa hero görseli

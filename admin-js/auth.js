@@ -1,5 +1,5 @@
 (function () {
-  const AUTH_KEY = "made3d.admin.authenticated";
+  const AUTH_KEY = "MAde3D.admin.authenticated";
   const DEFAULT_USERNAME = "admin";
   const DEFAULT_PASSWORD = "123456";
 

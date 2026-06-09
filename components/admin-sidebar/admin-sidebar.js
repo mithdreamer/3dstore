@@ -12,7 +12,7 @@
       <aside class="admin-sidebar">
         <a class="brand" href="${Utils.adminPath("index.html")}">
           <span class="brand-mark">${Utils.escapeHTML(settings.shortName || "FS")}</span>
-          <span>Made3D Admin</span>
+          <span>MAde3D Admin</span>
         </a>
         <nav class="admin-nav" aria-label="Admin menü">
           ${item(Utils.adminPath("index.html"), "Dashboard", "dashboard")}

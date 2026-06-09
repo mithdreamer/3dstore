@@ -133,7 +133,7 @@
 .hero-media::after {
   position: absolute;
   inset: auto 1.2rem 1.2rem 1.2rem;
-  content: "Made3D katalog ve sipariş akışı";
+  content: "MAde3D katalog ve sipariş akışı";
   padding: 1rem;
   border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.92);
@@ -141,7 +141,7 @@
   font-weight: 700;
 }
 
-.made3d-band {
+.MAde3D-band {
   border-color: rgba(20, 124, 132, 0.28);
   background: linear-gradient(135deg, #ffffff, #edf8f8);
 }

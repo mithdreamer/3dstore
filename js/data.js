@@ -3,16 +3,16 @@
 
   window.ECommerceSeed = {
     settings: {
-      siteName: "Made3D",
+      siteName: "MAde3D",
       shortName: "MA de",
       phone: "+90 555 123 45 67",
-      email: "merhaba@made3d.local",
+      email: "merhaba@MAde3D.local",
       address: "İzmir, Türkiye",
       adminUsername: "admin",
       adminPassword: "123456",
       heroTitle: "3D baskı ile fikrini ürüne dönüştür",
       heroSubtitle:
-        "Made3D; kişiye özel baskılar, prototip parçalar ve hobi/dekoratif 3D ürünler için modern, yönetilebilir bir mağaza vitrini.",
+        "MAde3D; kişiye özel baskılar, prototip parçalar ve hobi/dekoratif 3D ürünler için modern, yönetilebilir bir mağaza vitrini.",
       aboutImage: "",
       shippingFee: 99,
       freeShippingThreshold: 1500,
@@ -42,8 +42,8 @@
         enabled: false
       },
       bankTransfer: {
-        bankName: "Made3D Demo Bank",
-        accountHolder: "Made3D",
+        bankName: "MAde3D Demo Bank",
+        accountHolder: "MAde3D",
         iban: "TR00 0000 0000 0000 0000 0000 00"
       }
     },
@@ -295,7 +295,7 @@
     ],
     orders: [
       {
-        id: "ord-demo-made3d-1",
+        id: "ord-demo-MAde3D-1",
         number: "MAde-2026-0001",
         customer: {
           name: "Demo Müşteri",
@@ -330,7 +330,7 @@
         trackingNumber: "",
         trackingUrl: "",
         shipmentStatus: "preparing",
-        note: "Demo Made3D siparişi.",
+        note: "Demo MAde3D siparişi.",
         createdAt: "2026-06-08T11:30:00.000Z"
       }
     ]

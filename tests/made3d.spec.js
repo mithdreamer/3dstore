@@ -1,9 +1,9 @@
 const { test, expect } = require("@playwright/test");
 const path = require("path");
 
-test("Made3D storefront and admin demo flow", async ({ page }) => {
+test("MAde3D storefront and admin demo flow", async ({ page }) => {
   await page.goto("http://localhost:8080/");
-  await expect(page).toHaveTitle(/Made3D/);
+  await expect(page).toHaveTitle(/MAde3D/);
   await expect(page.getByRole("heading", { name: /3D baskı/i })).toBeVisible();
   await expect(page.locator(".product-card")).toHaveCount(4);
   await expect(page.locator(".category-tile")).toHaveCount(5);
@@ -31,7 +31,7 @@ test("Made3D storefront and admin demo flow", async ({ page }) => {
   await page.getByLabel("Şifre").fill("123456");
   await page.getByRole("button", { name: /Giriş yap/i }).click();
   await expect(page).toHaveURL(/admin\/index\.html/);
-  await expect(page.getByText("Made3D Admin")).toBeVisible();
+  await expect(page.getByText("MAde3D Admin")).toBeVisible();
 
   await page.goto("http://localhost:8080/admin/products.html");
   await expect(page.locator("#productsTableBody tr")).toHaveCount(8);

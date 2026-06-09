@@ -91,7 +91,7 @@
   const bindExport = () => {
     document.addEventListener("click", (event) => {
       if (!event.target.closest("[data-export-store]")) return;
-      Utils.downloadJSON("made3d-store-data.json", Store.exportData());
+      Utils.downloadJSON("MAde3D-store-data.json", Store.exportData());
     });
   };
 

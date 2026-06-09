@@ -10,9 +10,9 @@
             <div>
               <a class="brand" href="${Utils.rootPath()}index.html">
                 <span class="brand-mark">${Utils.escapeHTML(settings.shortName || "FS")}</span>
-                <span>${Utils.escapeHTML(settings.siteName || "Made3D")}</span>
+                <span>${Utils.escapeHTML(settings.siteName || "MAde3D")}</span>
               </a>
-              <p>Kişiye özel 3D baskı, prototip üretim ve dekoratif ürünler için Made3D vitrini.</p>
+              <p>Kişiye özel 3D baskı, prototip üretim ve dekoratif ürünler için MAde3D vitrini.</p>
             </div>
             <div>
               <h3>Mağaza</h3>
@@ -40,8 +40,8 @@
             </div>
           </div>
           <div class="footer-bottom">
-            <span>© ${new Date().getFullYear()} ${Utils.escapeHTML(settings.siteName || "Made3D")}</span>
-            <span>Made3D demo mağaza</span>
+            <span>© ${new Date().getFullYear()} ${Utils.escapeHTML(settings.siteName || "MAde3D")}</span>
+            <span>MAde3D demo mağaza</span>
           </div>
         </div>
       </footer>
