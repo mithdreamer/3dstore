@@ -12,8 +12,19 @@
     if (!form) return;
     form.addEventListener("submit", (event) => {
       event.preventDefault();
+      const data = {
+        id: Date.now(),
+        name: form.elements["name"].value,
+        email: form.elements["email"].value,
+        message: form.elements["message"].value,
+        createdAt: new Date().toISOString(),
+      };
+      const MESSAGES_KEY = "three-d-store-messages-v1";
+      const messages = JSON.parse(localStorage.getItem(MESSAGES_KEY) || "[]");
+      messages.unshift(data);
+      localStorage.setItem(MESSAGES_KEY, JSON.stringify(messages));
       form.reset();
-      Utils.showToast("Mesaj alındı. Demo sürümde form gönderimi yerel akış olarak çalışır.");
+      Utils.showToast("Mesaj alındı ve admin'de kaydedildi.");
     });
   };
 
