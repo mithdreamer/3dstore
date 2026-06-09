@@ -4,10 +4,10 @@
   window.ECommerceSeed = {
     settings: {
       siteName: "Made3D",
-      shortName: "M3D",
+      shortName: "MA de",
       phone: "+90 555 123 45 67",
       email: "merhaba@made3d.local",
-      address: "İstanbul, Türkiye",
+      address: "İzmir, Türkiye",
       adminUsername: "admin",
       adminPassword: "123456",
       heroTitle: "3D baskı ile fikrini ürüne dönüştür",
@@ -61,9 +61,9 @@
         branchCode: ""
       },
       sender: {
-        name: "Made3D Atölye",
+        name: "MAde3D Atölye",
         phone: "+90 555 123 45 67",
-        address: "İstanbul, Türkiye"
+        address: "İzmir, Türkiye"
       },
       carriers: [
         {
@@ -152,7 +152,7 @@
         id: "prd-modul-desk-organizer",
         name: "Modül Masa Organizer",
         slug: "modul-masa-organizer",
-        sku: "M3D-ORG-001",
+        sku: "MAde-ORG-001",
         categoryId: "cat-workspace",
         shortDescription: "Kalem, kart, telefon ve küçük aksesuarlar için modüler masa düzenleyici.",
         description:
@@ -170,7 +170,7 @@
         id: "prd-voronoi-lamp-shade",
         name: "Voronoi Abajur Başlığı",
         slug: "voronoi-abajur-basligi",
-        sku: "M3D-LGT-014",
+        sku: "MAde-LGT-014",
         categoryId: "cat-lighting",
         shortDescription: "Organik desenli, LED ampul ile kullanıma uygun dekoratif abajur başlığı.",
         description:
@@ -188,7 +188,7 @@
         id: "prd-robotic-prototype-kit",
         name: "Robotik Prototip Kiti",
         slug: "robotik-prototip-kiti",
-        sku: "M3D-PRT-022",
+        sku: "MAde-PRT-022",
         categoryId: "cat-prototype",
         shortDescription: "Servo bağlantısı, sensör kutusu ve motor braketlerinden oluşan deneme seti.",
         description:
@@ -206,7 +206,7 @@
         id: "prd-personal-nameplate",
         name: "Kişisel İsimlik",
         slug: "kisisel-isimlik",
-        sku: "M3D-KO-031",
+        sku: "MAde-KO-031",
         categoryId: "cat-personalized",
         shortDescription: "Masa, oda kapısı veya hediye kutusu için çift renkli özel isimlik.",
         description:
@@ -224,7 +224,7 @@
         id: "prd-architectural-model-kit",
         name: "Mimari Maket Seti",
         slug: "mimari-maket-seti",
-        sku: "M3D-DEC-044",
+        sku: "MAde-DEC-044",
         categoryId: "cat-decor",
         shortDescription: "Sunum, hobi ve konsept çalışmalar için parçalı mimari maket üretimi.",
         description:
@@ -242,7 +242,7 @@
         id: "prd-magnetic-phone-stand",
         name: "Manyetik Telefon Standı",
         slug: "manyetik-telefon-standi",
-        sku: "M3D-ORG-052",
+        sku: "MAde-ORG-052",
         categoryId: "cat-workspace",
         shortDescription: "Kablo kanallı, dikey ve yatay kullanım için kompakt telefon standı.",
         description:
@@ -260,7 +260,7 @@
         id: "prd-wall-mini-shelf",
         name: "Duvar Tipi Mini Raf",
         slug: "duvar-tipi-mini-raf",
-        sku: "M3D-DEC-061",
+        sku: "MAde-DEC-061",
         categoryId: "cat-decor",
         shortDescription: "Anahtar, kulaklık, bitki veya koleksiyon objeleri için dekoratif mini raf.",
         description:
@@ -278,7 +278,7 @@
         id: "prd-drone-part-pack",
         name: "Drone Parça Paketi",
         slug: "drone-parca-paketi",
-        sku: "M3D-PRT-073",
+        sku: "MAde-PRT-073",
         categoryId: "cat-prototype",
         shortDescription: "FPV projeleri için kamera braketi, anten tutucu ve ayak parçaları.",
         description:
@@ -296,7 +296,7 @@
     orders: [
       {
         id: "ord-demo-made3d-1",
-        number: "M3D-2026-0001",
+        number: "MAde-2026-0001",
         customer: {
           name: "Demo Müşteri",
           email: "demo@musteri.local",
@@ -325,7 +325,7 @@
         paymentMethod: "Havale/EFT",
         paymentStatus: "paid",
         paymentProvider: "manual",
-        transactionId: "DEMO-M3D-001",
+        transactionId: "DEMO-MAde-001",
         cargoCompany: "",
         trackingNumber: "",
         trackingUrl: "",

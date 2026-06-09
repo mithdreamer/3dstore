@@ -23,7 +23,7 @@ test("Made3D storefront and admin demo flow", async ({ page }) => {
   await page.getByLabel("Sipariş notu").fill("Mat turkuaz renk tercih edilir.");
   await page.getByRole("button", { name: /Siparişi oluştur/i }).click();
   await expect(page).toHaveURL(/order-success\.html\?order=/);
-  await expect(page.getByText(/M3D-2026-/)).toBeVisible();
+  await expect(page.getByText(/MAde-2026-/)).toBeVisible();
 
   await page.goto("http://localhost:8080/admin/");
   await expect(page).toHaveURL(/admin\/login\.html/);
@@ -40,7 +40,7 @@ test("Made3D storefront and admin demo flow", async ({ page }) => {
   await expect(page.locator("#categoriesTableBody tr")).toHaveCount(5);
 
   await page.goto("http://localhost:8080/admin/orders.html");
-  await expect(page.locator("#ordersTableBody tr").first()).toContainText("M3D-2026-");
+  await expect(page.locator("#ordersTableBody tr").first()).toContainText("MAde-2026-");
 
   await page.goto("http://localhost:8080/admin/payment-settings.html");
   await page.getByLabel("Havale/EFT").check();

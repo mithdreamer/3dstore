@@ -1,7 +1,7 @@
 [
   {
     "id": "ord-demo-made3d-1",
-    "number": "M3D-2026-0001",
+    "number": "MAde-2026-0001",
     "customer": {
       "name": "Demo Müşteri",
       "email": "demo@musteri.local",
@@ -30,7 +30,7 @@
     "paymentMethod": "Havale/EFT",
     "paymentStatus": "paid",
     "paymentProvider": "manual",
-    "transactionId": "DEMO-M3D-001",
+    "transactionId": "DEMO-MAde-001",
     "cargoCompany": "",
     "trackingNumber": "",
     "trackingUrl": "",

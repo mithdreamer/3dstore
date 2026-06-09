@@ -361,7 +361,7 @@
     const now = new Date();
     const order = {
       id: makeId("ord"),
-      number: `M3D-${now.getFullYear()}-${String(orders.length + 1).padStart(4, "0")}`,
+      number: `MAde-${now.getFullYear()}-${String(orders.length + 1).padStart(4, "0")}`,
       customer,
       items: cartItems.map((item) => ({
         productId: item.productId,
