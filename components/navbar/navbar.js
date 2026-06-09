@@ -26,7 +26,6 @@
               Sepet
               <span class="cart-count" data-cart-count>0</span>
             </a>
-            <a class="btn btn-outline" href="${Utils.adminPath("index.html")}">Admin</a>
             <button class="icon-btn btn-outline nav-toggle" type="button" aria-label="Menüyü aç">☰</button>
           </div>
         </div>
